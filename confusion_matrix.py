@@ -28,7 +28,7 @@ def calcEvaluation(tp, fp, fn, tn):
     
     return accuracy, recall, precition, f1
 
-def getConfusionMatrix(y_pred, y_true, classes = 3):
+def getConfusionMatrix(y_pred, y_true):
     y_pred = np.argmax(y_pred, axis=1)
     y_true = np.argmax(y_true, axis=1)
 
@@ -47,8 +47,8 @@ def getConfusionMatrix(y_pred, y_true, classes = 3):
 
     cm = confusion_matrix
 
-    for index in range(classes):
-        l = np.delete(np.arange(classes), index)
+    for index in range(num_classes):
+        l = np.delete(np.arange(num_classes), index)
         
         tp = cm[index][index]
 
